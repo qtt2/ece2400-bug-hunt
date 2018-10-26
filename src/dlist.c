@@ -152,18 +152,21 @@ void dlist_push_back( dlist_int_t* this, int value )
 //------------------------------------------------------------------------
 // dlist_swap_nodes
 //------------------------------------------------------------------------
-// Swap two nodes in a linked list
+// Swap node_1 and node_2 in a linked list
 
 void dlist_swap_nodes( dlist_int_t* this, node_t* node_1, node_t* node_2 )
 {
 
-  // Two nodes are the same, nothing to do here
-
   if ( node_1 == node_2 )
+    // Two nodes are the same, nothing to do here
     return;
+
+  // Get previous and next nodes of node_1
 
   node_t* p_node_1  = node_1->prev;
   node_t* n_node_1  = node_1->next;
+
+  // Get previous and next nodes of node_2
 
   node_t* p_node_2  = node_2->prev;
   node_t* n_node_2  = node_2->next;
@@ -275,6 +278,8 @@ node_t* find_min( node_t* begin, node_t* end )
       break;
     }
 
+    // move to the next node
+
     cur_node = cur_node->next;
   }
 
@@ -292,6 +297,8 @@ void dlist_sort( dlist_int_t* this )
     return;
 
   node_t* cur_node = this->head;
+
+  // Use selection sort
 
   while ( cur_node != NULL ) {
 
